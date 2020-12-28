@@ -7,19 +7,35 @@
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+
     <h1>Speed Reader</h1>
 
-    <form>
-        <label for="storyName">Story title:</label><br>
-        <input type="text" placeholder="Short story name"><br>
-        <label for="">How many words per minute?</label><br>
-        <input type="text" id="wordsPM" placeholder="How many words per minute?"><br>
-        <button type="button" onclick="getInputValue();">submit</button>
-    </form>
-    <br>
-    <br>
-    <div class="word-box"></div>
+    <div class="form-container">
+        <form>
+            <textarea placeholder="Insert piece of text" id="insertedText"></textarea><br>
+            <label for="">How many words per minute?</label><br>
+            <input type="text" id="wordsPM" placeholder="How many words per minute?"><br>
+            <button type="button" onclick="getInputValue();">submit</button>
+        </form>
+        <br>
+        <br>
+    </div>
+    <div class="options-container">
+        <label>Font Size: </label>
+        <button onclick="increaseFontSize()" id="smallerFont">+</button>
+        <button onclick="reduceFontSize()" id="largerFont">-</button>
+        <label>Dark Mode: </label>
+        <input type="checkbox" id="darkMode" onclick="darkModeSwitch()"><br>
+        <!-- <label>Font Style: </label>
+        <button onclick="changeFontToSerif()" id="serifFont">Serif</button>
+        <button onclick="reduceFontSize()" id="sansSerifFont">Sans Serif</button> -->
+        
+    </div>
 
+
+    <div class="word-container">
+        <div class="word-box small-text"></div>
+    </div>
     <script src="app.js" rel="javascript" type="text/javascript"></script>
 </body>
 </html>

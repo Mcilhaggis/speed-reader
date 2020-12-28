@@ -1,33 +1,77 @@
+//Speed reader
 const speedBox = document.querySelector('.word-box');
+const pauseChars = [',','.','!',';','...'];
+//Word display box
+const wordDisplayBox = document.querySelector('.word-container');
+//Checkbox
+const darkMode = document.querySelector('#darkMode')
+const body = document.querySelector('body');
 
-
-let stringScript = "Lillie stood on the weathered deck of the house she had loved for twenty years and imagined herself falling; tumbling over earth-toned rooftops, through lush pines and down to the rocky coastline below. She imagined the currents pulling her away from land, winds and water pushing her across the globe along ancient, unseen pathways, into the abyss."
-
-//Clear timer if new rate is input 
+//Get the desired WPM rate
 function getInputValue(){
-    let perSecondInterval = document.getElementById("wordsPM").value;
+    let perSecondInterval;
+    perSecondInterval = document.getElementById("wordsPM").value;
     let timeGap = Math.round(perSecondInterval / 60);
     timeGap = Math.round(1000 / timeGap);
     console.log("This many words per second: " + perSecondInterval);
     wordDisplay(timeGap);
 }
 
-//include grammatical characters 
-//allow for puauses with grammar:
-// var PauseTypes = {
-//     'fullstop': 1.5,
-//     'comma': 1,
-//     'ellipsis': 3
-//   }
-
+//Display chosen text in speed reader box
 function wordDisplay(time) {
+    let stringScript = document.getElementById("insertedText").value;
+    console.log(stringScript);
     let script = stringScript.split(" ");
     console.log(script);
     script.forEach(function (el, index) {
         setTimeout(function () {
             speedBox.innerHTML = el;
-            console.log(index);
-            console.log(time)
+            //Create pause for grammar!!
         }, index * time);
     });
+}
+
+//buttons for changing font size and font type
+function increaseFontSize(){
+    let style = window.getComputedStyle(wordDisplayBox).getPropertyValue('font-size');
+    let fontSize = parseFloat(style);
+    console.log("The current font size is: " + fontSize);
+    wordDisplayBox.style.fontSize = (fontSize +1) + "px";
+}
+
+function reduceFontSize(){
+    let style = window.getComputedStyle(wordDisplayBox).getPropertyValue('font-size');
+    let fontSize = parseFloat(style);
+    console.log("The current font size is: " + fontSize);
+    wordDisplayBox.style.fontSize = (fontSize -1) + "px";
+}
+
+
+
+// buttons for changing font style
+function changeFontToSerif(){
+    let font = window.getComputedStyle(wordDisplayBox).getPropertyValue('font-style');
+    console.log(font)
+    // wordDisplayBox.style.fontStyle = 'serif'
+}
+
+function changeFontToSansSerif(){
+    let style = window.getComputedStyle(wordDisplayBox).getPropertyValue('font-style');
+    let fontSize = parseFloat(style);
+    console.log("The current font size is: " + fontSize);
+    wordDisplayBox.style.fontSize = (fontSize -1) + "px";
+}
+
+function darkModeSwitch() {
+    if(darkMode.checked == true){
+        console.log("Dark mode enabled");
+        body.style.backgroundColor = "#393e46";
+        wordDisplayBox.style.backgroundColor = "black";
+        wordDisplayBox.style.color = "white";
+        
+    } else {
+        body.style.backgroundColor = "white";
+        wordDisplayBox.style.backgroundColor = "#fcfadf";
+        wordDisplayBox.style.color = "black";
+    }
 }
