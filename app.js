@@ -50,16 +50,15 @@ function reduceFontSize(){
 
 // buttons for changing font style
 function changeFontToSerif(){
-    let font = window.getComputedStyle(wordDisplayBox).getPropertyValue('font-style');
-    console.log(font)
-    // wordDisplayBox.style.fontStyle = 'serif'
+    let fontStyle = window.getComputedStyle(wordDisplayBox).getPropertyValue('font-family');
+    console.log("The current font style is: " + fontStyle);
+    wordDisplayBox.style.fontFamily = "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"
 }
 
 function changeFontToSansSerif(){
-    let style = window.getComputedStyle(wordDisplayBox).getPropertyValue('font-style');
-    let fontSize = parseFloat(style);
-    console.log("The current font size is: " + fontSize);
-    wordDisplayBox.style.fontSize = (fontSize -1) + "px";
+    let fontStyle = window.getComputedStyle(wordDisplayBox).getPropertyValue('font-family');
+    console.log("The current font style is: " + fontStyle);
+    wordDisplayBox.style.fontFamily = "'Times New Roman', Times, serif"
 }
 
 function darkModeSwitch() {
