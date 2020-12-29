@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed-Reader</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <h1>Speed Reader</h1>
+
+    <div class="form-container">
+        <form>
+            <textarea placeholder="Insert piece of text" id="insertedText"></textarea><br>
+            <label for="">How many words per minute?</label><br>
+            <input type="text" id="wordsPM" placeholder="How many words per minute?"><br>
+            <button type="button" onclick="getInputValue();">submit</button>
+        </form>
+        <br>
+        <br>
+    </div>
+    <div class="options-container">
+        <label>Font Size: </label>
+        <button onclick="increaseFontSize()" id="smallerFont">+</button>
+        <button onclick="reduceFontSize()" id="largerFont">-</button>
+        <label>Dark Mode: </label>
+        <input type="checkbox" id="darkMode" onclick="darkModeSwitch()"><br>
+        <label>Font Style: </label>
+        <button onclick="changeFontToSerif()" id="serifFont">Serif</button>
+        <button onclick="changeFontToSansSerif()" id="sansSerifFont">Sans Serif</button>
+        
+    </div>
+
+
+    <div class="word-container">
+        <div class="word-box small-text"></div>
+    </div>
+    <script src="app.js" rel="javascript" type="text/javascript"></script>
+</body>
+</html>
